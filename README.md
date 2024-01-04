@@ -18,6 +18,31 @@ I found neither test set fully covered what I wanted testing:
 
 As a result of this, I decided to create my own test set to be used in combination with the existing two to fully exercise my compiler -- inspired by the excellent work done by previous students for the harder test set.
 
+## What is added?
+
+### Error message (negative) testing
+
+The killer feature of this set of tests is negative testing!
+
+This works by attempting to compile invalid code, then failing the test script if the compiler passes without error.
+
+In addition to this, for invalid code which is also rejected by `clang`, the error message yielded by `clang` is also printed to model the output off.
+
+### Specification semantics testing
+
+Some tests for constraints of the specification beyond the largely syntactic simple tests are added, including:
+
+* Testing scope, as inner and outer scopes have specific semantics for their interactions
+* Testing truthiness, as integers and floats should be truthy as booleans in `if` and `while` statements
+* Testing all permutations of widening casts, as this is easy to miss something if not rigorous
+* Other miscellaneous tests, including:
+  * Variable and function name shadowing
+  * Nested trivial blocks
+  * Left-associative operand correctness
+  * `void` parameters
+  * Expression statements
+
+
 ## Installation
 
 As with the harder test set:
@@ -28,7 +53,7 @@ As with the harder test set:
 
 1. Run (and pass) all the simple tests primarily
 2. Install and try to pass all these medium tests
-3. Install and try to pass some of the harder tests, excluding:
+3. Install and try to pass some of the harder tests, consider excluding:
    * `implicit` - as this perform as a narrowing cast of floats to ints, so should not compiler.
    * `unary2` - this can be passed staying within the spec, but it's a right pain so I wouldn't bother.
    * `lazyeval` - this is only required if you are doing the extension of boolean short-circuiting.
