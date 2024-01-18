@@ -2,7 +2,7 @@
 
 ## About
 
-The CS325 coursework spec provides a set of simple tests for your MiniC compiler, and in previous years [students from the Cult of Matt wrote a set of "harder tests"](https://github.com/codethulu/CS325-coursework-tests).
+The CS325 coursework spec provides a set of simple tests for your MiniC compiler, and in previous years [students from the cohort starting in 2020 wrote a set of "harder tests"](https://github.com/codethulu/CS325-coursework-tests).
 
 The harder test README succintly states it's goals as follows, which align with this repositories goals:
 
